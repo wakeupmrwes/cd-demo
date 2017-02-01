@@ -1,6 +1,6 @@
 ---
 layout: post
-Welcome to the second HSBC demo
+title:  "Welcome to the Second continuous Delivery demonstration!"
 categories: demo
 ---
 
