@@ -16,7 +16,7 @@
     "id": "cd-demo-app",
     "instances": 1,
     "labels": {
-        "HAPROXY_0_VHOST": "colin-200-publicsl-1oekb5idpj7ur-438848084.us-west-2.elb.amazonaws.com",
+        "HAPROXY_0_VHOST": "sunil-w6w-publicsl-io6woc81zmug-1554144350.us-west-2.elb.amazonaws.com",
         "HAPROXY_GROUP": "external",
         "lastChangedBy": "velocity-team@mesosphere.io"
     },
