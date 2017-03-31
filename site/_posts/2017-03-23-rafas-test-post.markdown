@@ -1,8 +1,0 @@
----
-layout: post
-title:  "Welcome to Rafa's Next New Second then 3rd & 4th Continuous Delivery demonstration!"
-categories: demo
-
----
-
-This is an example post that you can make using Markdown to demonstrate a website being statically generated and deployed!
