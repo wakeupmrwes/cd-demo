@@ -39,16 +39,10 @@ node {
 
     // Log in and push image to Docker Hub
     stage 'Publish'
-    withCredentials(
-        [[
-            $class: 'UsernamePasswordMultiBinding',
-            credentialsId: 'docker-hub-credentials',
-            passwordVariable: 'DOCKER_HUB_PASSWORD',
-            usernameVariable: 'DOCKER_HUB_USERNAME'
-        ]]
-    ) {
-        sh "docker login -u '${env.DOCKER_HUB_USERNAME}' -p '${env.DOCKER_HUB_PASSWORD}' -e demo@mesosphere.com"
-        sh "docker push mesosphere/cd-demo-app:${gitCommit()}"
+    {
+        sh "docker login -u admin -p password"
+        sh "docker tag mesosphere/cd-demo-app artifactory-lb.marathon.mesos:5001/cd-demo-app"
+        sh "docker push artifactory-lb.marathon.mesos:5001/cd-demo-app:${gitCommit()}"
     }
 
 
@@ -61,7 +55,7 @@ node {
         credentialsId: 'dcos-token',
         filename: 'marathon.json',
         appid: 'jenkins-deployed-app',
-        docker: "mesosphere/cd-demo-app:${gitCommit()}".toString(),
+        docker: "artifactory-lb.marathon.mesos:5001/cd-demo-app:${gitCommit()}".toString(),
         labels: ['lastChangedBy': "${gitEmail()}".toString()]
     )
 
