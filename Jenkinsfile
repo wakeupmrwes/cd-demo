@@ -40,7 +40,7 @@ node {
     // Log in and push image to Docker Hub
     stage 'Publish'
     sh "docker login -u admin -p password artifactory-lb.marathon.mesos:5001"
-    sh "docker tag mesosphere/cd-demo-app artifactory-lb.marathon.mesos:5001/cd-demo-app"
+    sh "docker tag mesosphere/cd-demo-app:${gitCommit()} artifactory-lb.marathon.mesos:5001/cd-demo-app:${gitCommit()}"
     sh "docker push artifactory-lb.marathon.mesos:5001/cd-demo-app:${gitCommit()}"
 
 
